@@ -1,0 +1,50 @@
+name: Autograding Tests
+'on':
+- push
+- repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: get_products_test
+      id: get_products_test
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: get_products_test
+        setup-command: pip install pytest
+        command: pytest tests/test_mostrar.py
+        timeout: 10
+        max-score: 45
+    - name: create_product_test
+      id: create_product_test
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: create_product_test
+        setup-command: pip install pytest
+        command: pytest tests/test_guardar.py
+        timeout: 10
+        max-score: 45
+    - name: exit_app_test
+      id: exit_app_test
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: exit_app_test
+        setup-command: pip install pytest
+        command: pytest tests/test_salir.py
+        timeout: 10
+        max-score: 10
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        GET_PRODUCTS_TEST_RESULTS: "${{steps.get_products_test.outputs.result}}"
+        CREATE_PRODUCT_TEST_RESULTS: "${{steps.create_product_test.outputs.result}}"
+        EXIT_APP_TEST_RESULTS: "${{steps.exit_app_test.outputs.result}}"
+      with:
+        runners: get_products_test,create_product_test,exit_app_test
