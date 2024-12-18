@@ -1,5 +1,7 @@
-Link a la carpeta compartida en Drive de mi proyecto: https://drive.google.com/drive/folders/1yHj1UsS8kQgAWOqZSXLgNi4HmX2cpTF2?usp=sharing
+Links a la carpeta compartida en Drive de mi proyecto: 	https://drive.google.com/drive/folders/1yHj1UsS8kQgAWOqZSXLgNi4HmX2cpTF2?usp=sharing
 
-Link al repo Git Personal:
+							https://drive.google.com/drive/folders/1yHj1UsS8kQgAWOqZSXLgNi4HmX2cpTF2?usp=drive_link
 
-Link al repo Git de la cursada:
+Link al repo Git Personal: https://github.com/martinffg/TalTech_PY_C24212_PREENTREGA.git
+
+Link al repo Git de la cursada: https://github.com/Talento-Tech-Introduccion-Python/preentrega-martinffg.git
